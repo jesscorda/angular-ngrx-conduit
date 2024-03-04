@@ -1,0 +1,22 @@
+<div class="shadow-lg flex flex-col m-auto max-w-[25%] mt-5 p-8 rounded-md">
+  <p class="text-2xl text-THEME_COLORS-ultraViolet my-4 text-center">Login</p>
+  <form class="flex flex-col w-full">
+    <span class="flex flex-col gap-1 mt-3"
+      ><label for="email" class="text-sm text-slate-700">Email</label
+      ><input class="rounded-md border-none p-1" type="text" id="email"
+    /></span>
+    <span class="flex flex-col gap-1 mt-3"
+      ><label for="password" class="text-sm text-slate-700">Password</label
+      ><input class="rounded-md border-none p-1" type="text" id="password"
+    /></span>
+    <a href="" class="text-xs text-slate-700 mt-3 ml-auto">Forgot Password?</a>
+    <button
+      class="rounded-md p-2 bg-THEME_COLORS-ultraViolet text-THEME_COLORS-isabelline mt-2"
+      type="submit">
+      Login
+    </button>
+    <a [routerLink]="['../', authRoutes.RegisterUser]" class="text-xs text-slate-700 mt-2 text-center">
+      Don't have an account? Sign Up
+    </a>
+  </form>
+</div>

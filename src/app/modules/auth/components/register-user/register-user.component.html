@@ -1,0 +1,26 @@
+<div class="shadow-lg flex flex-col m-auto max-w-[25%] mt-5 p-8 rounded-md">
+  <p class="text-2xl text-THEME_COLORS-ultraViolet my-4 text-center">Register</p>
+  <form class="flex flex-col w-full" [formGroup]="registerUserForm" (ngSubmit)="registerUser()">
+    <span class="flex flex-col gap-1 mt-3"
+      ><label for="name" class="text-sm text-slate-700">Name</label
+      ><input formControlName="name" class="rounded-md border-none p-1" type="text" id="name"
+    /></span>
+    <span class="flex flex-col gap-1 mt-3"
+      ><label for="email" class="text-sm text-slate-700">Email</label
+      ><input formControlName="email" class="rounded-md border-none p-1" type="text" id="email"
+    /></span>
+    <span class="flex flex-col gap-1 mt-3"
+      ><label for="password" class="text-sm text-slate-700">Password</label
+      ><input formControlName="password" class="rounded-md border-none p-1" type="text" id="password"
+    /></span>
+    <span class="flex flex-col gap-1 mt-3"
+      ><label for="age" class="text-sm text-slate-700">Age</label
+      ><input formControlName="age" class="rounded-md border-none p-1" type="number" id="age"
+    /></span>
+    <button
+      class="rounded-md p-2 bg-THEME_COLORS-ultraViolet text-THEME_COLORS-isabelline mt-4"
+      type="submit">
+      Register
+    </button>
+  </form>
+</div>
