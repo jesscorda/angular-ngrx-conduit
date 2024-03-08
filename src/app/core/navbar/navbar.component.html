@@ -1,6 +1,18 @@
-<header>
-  <nav class="flex gap-2 justify-center items-center p-6 text-3xl text-THEME_COLORS-spaceCadet font-extrabold">
-    <ng-icon color="HEADER_ICON_COLOR" name="heroCheckCircle"></ng-icon>
-    <h1>TODOAPP</h1>
+<header class="bg-THEME_COLORS-ultraViolet">
+  <nav
+    class="flex gap-2 justify-between items-center p-6 text-3xl text-THEME_COLORS-isabelline font-extrabold">
+    <h1 [routerLink]="[homeRoute]" class="cursor-pointer">CONDUIT</h1>
+    <ul class="flex gap-4 items-center" *ngIf="user$ | async as user">
+      <li>
+        <button class="p-2 rounded-md text-lg font-semibold" (click)="onLogoutUser()">
+          {{ user ? 'Logout' : 'Log In' }}
+        </button>
+      </li>
+      <li>
+        <button [routerLink]="[profileRoute, user?.username]">
+          <app-avatar [imageUrl]="user?.image"></app-avatar>
+        </button>
+      </li>
+    </ul>
   </nav>
 </header>

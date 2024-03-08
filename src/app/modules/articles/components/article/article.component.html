@@ -1,0 +1,28 @@
+<div class="p-4">
+  <p class="font-bold text-lg">
+    {{ article.title }}
+  </p>
+  <div class="flex flex-wrap gap-1 mt-2">
+    <p class="text-slate-700 text-sm">{{ article.body | slice: 0 : 200 }}...</p>
+    <app-action-button
+      type="secondary"
+      label="Read More"
+      [routerLink]="[articlesRoute, article.slug]"></app-action-button>
+  </div>
+  <div class="flex mt-5 items-center justify-between">
+    <div class="flex gap-4">
+      <button [routerLink]="[profileRoute, article.author.username]">
+        <app-avatar [imageUrl]="article.author.image"></app-avatar>
+      </button>
+      <div class="flex flex-col text-xs gap-1 text-slate-700">
+        <p class="text-THEME_COLORS-spaceCadet">{{ article.author.username }}</p>
+        <p>{{ article.createdAt | date }}</p>
+      </div>
+    </div>
+    <div class="flex gap-1">
+      <ng-icon color="crimson" name="heroHeartSolid"></ng-icon>
+      <p class="text-xs text-slate-700">{{ article.favoritesCount }}</p>
+    </div>
+  </div>
+</div>
+<app-horizontal-divider></app-horizontal-divider>

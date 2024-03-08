@@ -1,0 +1,12 @@
+<div class="p-2 shadow rounded-lg cursor-pointer max-w-md">
+  <div class="flex gap-2 items-center">
+    <button [routerLink]="[profileRoute, article.author.username]">
+      <app-avatar [imageUrl]="article.author.image"></app-avatar>
+    </button>
+    <p class="text-THEME_COLORS-spaceCadet text-xs font-semibold">{{ article.author.username }}</p>
+  </div>
+  <p [routerLink]="[articlesRoute, article.slug]" class="text-sm font-bold mt-2">
+    {{ article.title }}
+  </p>
+  <p class="text-slate-700 text-xs mt-2">{{ article.createdAt | date }}</p>
+</div>

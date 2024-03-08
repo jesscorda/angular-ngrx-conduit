@@ -1,0 +1,11 @@
+<div class="flex gap-8">
+  <button (click)="onToggleFavoriteArticle()">
+    <ng-icon
+      size="1.25rem"
+      color="{{ article?.favorited ? 'crimson' : '' }}"
+      name="{{ article?.favorited ? 'heroHeartSolid' : 'heroHeart' }}"></ng-icon>
+  </button>
+  <button (click)="onComment()">
+    <ng-icon size="1.25rem" name="heroChatBubbleBottomCenterText"></ng-icon>
+  </button>
+</div>

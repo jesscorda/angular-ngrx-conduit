@@ -1,8 +1,15 @@
-import { FormControl } from '@angular/forms';
+import type { FormControl } from '@angular/forms';
 
 export interface RegisterForm {
-  name: FormControl<string>;
+  username: FormControl<string>;
   email: FormControl<string>;
   password: FormControl<string>;
-  age: FormControl<number | null>;
+}
+
+export interface RegisterUserPayload {
+  user: {
+    username: string;
+    email: string;
+    password: string;
+  };
 }

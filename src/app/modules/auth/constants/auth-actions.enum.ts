@@ -1,0 +1,15 @@
+export enum AuthActionNames {
+  Login = 'Login',
+  LoginSuccess = 'Login Success',
+  loginFailure = 'Login Failure',
+  RegisterUser = 'Register User',
+  RegisterUserSuccess = 'Register User Success',
+  RegisterUserFailure = 'Register User Failure',
+  GetUser = 'Get User',
+  GetUserSuccess = 'Get User Success',
+  GetUserFailure = 'Get User Failure',
+  UpdateUser = 'Update User',
+  UpdateUserSuccess = 'Update User Success',
+  UpdateUserFailure = 'Update User Failure',
+  Logout = 'Logout',
+}

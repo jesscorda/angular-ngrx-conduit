@@ -1,0 +1,7 @@
+@if (articles.length > 0) {
+  @for (article of articles; track article.slug) {
+    <app-article [article]="article"></app-article>
+  }
+} @else {
+  <app-empty-data-indicator></app-empty-data-indicator>
+}

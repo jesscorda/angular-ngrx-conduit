@@ -1,0 +1,33 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <app-loader [showLoader]="vm.isLoading"></app-loader>
+
+  <div class="grid grid-cols-4 gap-10">
+    <div class="p-4 pl-10">
+      <p class="text-sm font-bold mt-10">Top Stories</p>
+      <div class="mt-5">
+        <app-article-card-list [articles]="vm.articles"></app-article-card-list>
+      </div>
+    </div>
+
+    <div class="flex flex-col col-span-2">
+      <p class="text-3xl font-bold mt-5">For you</p>
+      <div class="ml-auto mb-2">
+        <app-action-button
+          type="secondary"
+          label="See More"
+          [routerLink]="[articlesRoute]"></app-action-button>
+      </div>
+      <app-horizontal-divider></app-horizontal-divider>
+      <app-article-list [articles]="vm.feedArticles"></app-article-list>
+    </div>
+
+    <div class="p-4">
+      <p class="text-sm font-bold mt-10">Topics to Follow</p>
+      <div class="grid grid-cols-2 gap-4 mt-5">
+        @for (tag of vm.tags; track tag) {
+          <app-tag [tag]="tag"></app-tag>
+        }
+      </div>
+    </div>
+  </div>
+</ng-container>

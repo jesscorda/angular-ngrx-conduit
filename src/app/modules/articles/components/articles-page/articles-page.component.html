@@ -1,0 +1,9 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <div class="p-5 w-2/3 mx-auto">
+    <p class="text-3xl font-bold mt-5 mb-2">All Articles</p>
+    <app-horizontal-divider></app-horizontal-divider>
+    <div class="mt-2">
+      <app-article-list [articles]="vm.articles"></app-article-list>
+    </div>
+  </div>
+</ng-container>

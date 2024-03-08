@@ -1,0 +1,20 @@
+import { Component, Input } from '@angular/core';
+import type { Article } from '../../types/article.interface';
+import { DatePipe } from '@angular/common';
+import { AvatarComponent } from '../../../../shared/components/avatar/avatar.component';
+import { RouterLink } from '@angular/router';
+import { AppRoutes } from '../../../../shared/constants/app-route-names.enum';
+
+@Component({
+  selector: 'app-article-card',
+  standalone: true,
+  imports: [AvatarComponent, DatePipe, RouterLink],
+  templateUrl: './article-card.component.html',
+})
+export class ArticleCardComponent {
+  @Input({ required: true }) article!: Article;
+
+  readonly articlesRoute = `/${AppRoutes.Articles}`;
+
+  readonly profileRoute = `/${AppRoutes.Profile}`;
+}

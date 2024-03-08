@@ -1,0 +1,16 @@
+<div class="flex justify-center items-center bg-THEME_COLORS-isabelline p-8">
+  <div class="flex justify-between w-1/2 items-center">
+    <div class="flex flex-col">
+      <button [routerLink]="[profileRoute, author?.username]">
+        <app-avatar size="l" [imageUrl]="author?.image"></app-avatar>
+      </button>
+      <p class="text-2xl font-semibold mt-5">Written by {{ author?.username }}</p>
+      <p class="text-sm">{{ author?.bio }}</p>
+    </div>
+    <div>
+      <app-action-button
+        [label]="author?.following ? 'Following' : 'Follow'"
+        (toggleFollowUser)="onToggleFollowUser(author)"></app-action-button>
+    </div>
+  </div>
+</div>

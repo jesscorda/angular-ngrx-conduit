@@ -1,0 +1,62 @@
+<ng-container *ngIf="vm$ | async as vm">
+  <section>
+    <div class="lg:w-[50%] p-4 mx-auto flex gap-10 items-start">
+      <button [routerLink]="[articlesRoute]">
+        <ng-icon size="1.5rem" name="heroArrowLeft"></ng-icon>
+      </button>
+      <div>
+        <h2 class="text-3xl text-THEME_COLORS-spaceCadet font-extrabold">
+          {{ vm.article?.title }}
+        </h2>
+        <div class="flex gap-4 mt-5 w-full justify-between items-center">
+          <div class="flex gap-4 items-center">
+            <button [routerLink]="[profileRoute, vm.article?.author?.username]">
+              <app-avatar [imageUrl]="vm.article?.author?.image"></app-avatar>
+            </button>
+            <div class="flex gap-2 items-start">
+              <div class="flex flex-col text-xs gap-1 text-slate-700">
+                <p class="text-THEME_COLORS-spaceCadet">{{ vm.article?.author?.username }}</p>
+                <p>{{ vm.article?.createdAt | date }}</p>
+              </div>
+
+              <app-action-button
+                [label]="vm.article?.author?.following ? 'Following' : 'Follow'"
+                (toggleFollowUser)="onToggleFollowUser(vm.article?.author)"></app-action-button>
+            </div>
+          </div>
+          <div class="flex gap-1">
+            <ng-icon color="crimson" name="heroHeartSolid"></ng-icon>
+            <p class="text-xs text-slate-700">{{ vm.article?.favoritesCount }}</p>
+          </div>
+        </div>
+
+        <div
+          class="flex justify-between items-center mt-10 border-y border-opacity-20 border-THEME_COLORS-paleDogwood py-4">
+          <app-article-actions
+            [article]="vm.article"
+            (toggleFavoriteArticle)="onToggleFavoriteArticle(vm.article)"></app-article-actions>
+        </div>
+
+        <p class="text-THEME_COLORS-spaceCadet mt-5">{{ vm.article?.body }}</p>
+
+        <div class="flex gap-2 mt-5">
+          @for (tag of vm.article?.tagList; track tag) {
+            <app-tag [tag]="tag"></app-tag>
+          }
+        </div>
+
+        <div class="mt-10">
+          <app-article-actions
+            [article]="vm.article"
+            (toggleFavoriteArticle)="onToggleFavoriteArticle(vm.article)"></app-article-actions>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10">
+      <app-article-author
+        [author]="vm.article?.author"
+        (toggleFollowUser)="onToggleFollowUser($event)"></app-article-author>
+    </div>
+  </section>
+</ng-container>

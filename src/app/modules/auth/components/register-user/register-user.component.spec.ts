@@ -1,4 +1,5 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import type { ComponentFixture } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
 import { RegisterUserComponent } from './register-user.component';
 
@@ -8,7 +9,7 @@ describe('RegisterUserComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RegisterUserComponent]
+      imports: [RegisterUserComponent],
     });
     fixture = TestBed.createComponent(RegisterUserComponent);
     component = fixture.componentInstance;

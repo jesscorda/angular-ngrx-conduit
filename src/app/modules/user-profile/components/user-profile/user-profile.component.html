@@ -1,0 +1,22 @@
+<section class="lg:w-2/3 mx-auto" *ngIf="vm$ | async as vm">
+  <app-avatar size="xl" [imageUrl]="vm?.profile?.image ?? ''"></app-avatar>
+  <h2 class="text-2xl font-semibold mt-5">{{ vm?.profile?.username }}</h2>
+  <p class="text-sm mt-2">{{ vm?.profile?.bio }}</p>
+  @if (vm?.currentUser?.username === vm?.profile?.username) {
+    <button
+      class="text-xs bg-THEME_COLORS-paleDogwood px-2 rounded py-1 mt-2"
+      [routerLink]="[profileEditRoute]">
+      Edit Profile
+    </button>
+  }
+  <div class="mt-10">
+    <app-horizontal-divider></app-horizontal-divider>
+  </div>
+  <div>
+    <p class="text-lg font-semibold">Favorited Articles</p>
+    <div class="mt-5">
+      <app-article-card-list [articles]="vm.articles"></app-article-card-list>
+    </div>
+  </div>
+</section>
+<router-outlet></router-outlet>
