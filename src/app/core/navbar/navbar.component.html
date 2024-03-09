@@ -1,20 +1,15 @@
 <header class="bg-THEME_COLORS-ultraViolet">
   <nav
-    class="flex gap-2 justify-between items-center p-6 text-3xl text-THEME_COLORS-isabelline font-extrabold">
+    class="flex gap-2 justify-between items-center py-6 px-4 text-3xl text-THEME_COLORS-isabelline font-extrabold">
     <h1 [routerLink]="[homeRoute]" class="cursor-pointer">CONDUIT</h1>
     <ul class="flex gap-4 items-center" *ngIf="user$ | async as user">
-      <li>
-        <button [routerLink]="[homeRoute]" class="p-2 rounded-md text-lg font-semibold">
-          Home
+      <li class="flex items-center">
+        <button [routerLink]="[homeRoute]">
+          <ng-icon name="heroHome"></ng-icon>
         </button>
       </li>
-      <li>
-        <button class="p-2 rounded-md text-lg font-semibold" (click)="onLogoutUser()">
-          {{ user ? 'Logout' : 'Log In' }}
-        </button>
-      </li>
-      <li>
-        <button [routerLink]="[profileRoute, user?.username]">
+      <li class="flex items-center">
+        <button class="inline-block" [routerLink]="[profileRoute, user?.username]">
           <app-avatar [imageUrl]="user?.image"></app-avatar>
         </button>
       </li>
