@@ -1,11 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import type { LoginForm } from '../../types/login.interface';
 import { AuthRoutes } from '../../constants/auth-routes.enum';
 import { RouterLink } from '@angular/router';

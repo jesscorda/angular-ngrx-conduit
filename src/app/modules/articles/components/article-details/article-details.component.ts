@@ -9,9 +9,7 @@ import { AsyncPipe, DatePipe, NgIf } from '@angular/common';
 import { AvatarComponent } from '../../../../shared/components/avatar/avatar.component';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroHeartSolid } from '@ng-icons/heroicons/solid';
-import {
-  heroArrowLeft,
-} from '@ng-icons/heroicons/outline';
+import { heroArrowLeft } from '@ng-icons/heroicons/outline';
 import { TagComponent } from '../../../../shared/components/tag/tag.component';
 import { ArticleActionsComponent } from '../article-actions/article-actions.component';
 import { ArticleAuthorComponent } from '../article-author/article-author.component';

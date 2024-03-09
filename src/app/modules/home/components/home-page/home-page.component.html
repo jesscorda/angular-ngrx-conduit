@@ -1,31 +1,57 @@
 <ng-container *ngIf="vm$ | async as vm">
   <app-loader [showLoader]="vm.isLoading"></app-loader>
 
-  <div class="grid grid-cols-4 gap-10">
-    <div class="p-4 pl-10">
-      <p class="text-sm font-bold mt-10">Top Stories</p>
-      <div class="mt-5">
+  <div class="grid grid-cols-1 lg:grid-cols-4 gap-10 p-4">
+    <div class="flex flex-col lg:col-span-2 lg:order-2 mt-5">
+      <div class="flex justify-between">
+        <p class="text-3xl font-bold">For you</p>
+        <div class="ml-auto mb-2">
+          <app-action-button
+            type="secondary"
+            label="See More"
+            [routerLink]="[articlesRoute]"></app-action-button>
+        </div>
+      </div>
+      <app-horizontal-divider></app-horizontal-divider>
+      <div class="mt-3">
+        <app-article-list [articles]="vm.feedArticles"></app-article-list>
+      </div>
+    </div>
+
+    <div class="lg:order-1 mt-5">
+      <div class="flex justify-between">
+        <p class="text-3xl lg:text-sm font-bold">Top Stories</p>
+        <div class="ml-auto mb-2">
+          <app-action-button
+            type="secondary"
+            label="See More"
+            [routerLink]="[articlesRoute]"></app-action-button>
+        </div>
+      </div>
+      <app-horizontal-divider></app-horizontal-divider>
+      <div class="mt-3">
         <app-article-card-list [articles]="vm.articles"></app-article-card-list>
       </div>
     </div>
 
-    <div class="flex flex-col col-span-2">
-      <p class="text-3xl font-bold mt-5">For you</p>
-      <div class="ml-auto mb-2">
-        <app-action-button
-          type="secondary"
-          label="See More"
-          [routerLink]="[articlesRoute]"></app-action-button>
+    <div class="lg:order-3 mt-5">
+      <div class="flex justify-between">
+        <p class="text-3xl lg:text-sm font-bold">Topics to Follow</p>
+        <div class="ml-auto mb-2">
+          <app-action-button
+            type="secondary"
+            label="See More"
+            [routerLink]="[articlesRoute]"></app-action-button>
+        </div>
       </div>
       <app-horizontal-divider></app-horizontal-divider>
-      <app-article-list [articles]="vm.feedArticles"></app-article-list>
-    </div>
-
-    <div class="p-4">
-      <p class="text-sm font-bold mt-10">Topics to Follow</p>
-      <div class="grid grid-cols-2 gap-4 mt-5">
-        @for (tag of vm.tags; track tag) {
-          <app-tag [tag]="tag"></app-tag>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center mt-3">
+        @if (vm.tags.length > 0) {
+          @for (tag of vm.tags; track tag) {
+            <app-tag [tag]="tag"></app-tag>
+          }
+        } @else {
+          <app-empty-data-indicator></app-empty-data-indicator>
         }
       </div>
     </div>

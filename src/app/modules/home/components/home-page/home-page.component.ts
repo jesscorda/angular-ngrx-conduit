@@ -19,6 +19,7 @@ import { RouterLink } from '@angular/router';
 import { TagComponent } from '../../../../shared/components/tag/tag.component';
 import { ArticleCardListComponent } from '../../../articles/components/article-card-list/article-card-list.component';
 import { AppRoutes } from '../../../../shared/constants/app-route-names.enum';
+import { EmptyDataIndicatorComponent } from '../../../../shared/components/empty-data-indicator/empty-data-indicator.component';
 
 @Component({
   selector: 'app-home-page',
@@ -32,6 +33,7 @@ import { AppRoutes } from '../../../../shared/constants/app-route-names.enum';
     RouterLink,
     TagComponent,
     ArticleCardListComponent,
+    EmptyDataIndicatorComponent,
   ],
   templateUrl: './home-page.component.html',
 })
