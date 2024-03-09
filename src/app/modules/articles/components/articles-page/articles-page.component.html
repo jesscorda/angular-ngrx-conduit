@@ -14,6 +14,8 @@
     <app-paginator
       [offset]="vm.filters.offset"
       [limit]="vm.filters.limit"
-      [total]="vm.articlesCount" (next)="onNextPress($event)" (previous)="onPreviousPress($event)"></app-paginator>
+      [total]="vm.articlesCount"
+      (next)="onNextPress($event)"
+      (previous)="onPreviousPress($event)"></app-paginator>
   </div>
 </ng-container>
