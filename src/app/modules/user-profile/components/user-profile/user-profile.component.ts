@@ -8,7 +8,7 @@ import { profileActions } from '../../store/profile.actions';
 import type { AuthState } from '../../../auth/types/auth-state.interface';
 import { selectCurrentUser } from '../../../auth/store/auth.reducer';
 import { Subject, combineLatest, takeUntil, tap } from 'rxjs';
-import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { AuthActions } from '../../../auth/store/auth.actions';
 import type { Username } from '../../../../shared/types/user.interface';
 import { Actions, ofType } from '@ngrx/effects';
@@ -19,6 +19,11 @@ import { selectArticles } from '../../../articles/store/articles.reducer';
 import { ArticleCardListComponent } from '../../../articles/components/article-card-list/article-card-list.component';
 import { AppRoutes } from '../../../../shared/constants/app-route-names.enum';
 import { ProfileRoutes } from '../../constants/profile-routes.enum';
+import { heroPencil } from '@ng-icons/heroicons/outline';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { AuthRoutes } from '../../../auth/constants/auth-routes.enum';
+import { AuthService } from '../../../auth/services/auth.service';
+import { ActionButtonComponent } from '../../../../shared/components/action-button/action-button.component';
 
 @Component({
   selector: 'app-user-profile',
@@ -31,7 +36,10 @@ import { ProfileRoutes } from '../../constants/profile-routes.enum';
     RouterOutlet,
     HorizontalDividerComponent,
     ArticleCardListComponent,
+    NgIconComponent,
+    ActionButtonComponent,
   ],
+  providers: [provideIcons({ heroPencil })],
   templateUrl: './user-profile.component.html',
 })
 export class UserProfileComponent {
@@ -41,11 +49,17 @@ export class UserProfileComponent {
 
   private readonly _articleStore = inject(Store<{ articles: ArticleState }>);
 
+  private _authService = inject(AuthService);
+
+  private _router = inject(Router);
+
   private readonly _actions$ = inject(Actions);
 
   private _route = inject(ActivatedRoute);
 
   profileEditRoute = `/${AppRoutes.Profile}/:username/${ProfileRoutes.EditProfileInfo}`;
+
+  readonly loginRoute = `/${AppRoutes.Auth}/${AuthRoutes.Login}`;
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -89,6 +103,12 @@ export class UserProfileComponent {
     this._articleStore.dispatch(
       articlePageActions.getAllArticles({ queryParams: { favorited: username } }),
     );
+  }
+
+  onLogoutUser(): void {
+    this._authStore.dispatch(AuthActions.logout());
+    this._authService.logoutUser();
+    this._router.navigate([this.loginRoute]);
   }
 
   ngOnDestroy() {
