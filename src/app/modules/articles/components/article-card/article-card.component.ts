@@ -14,7 +14,7 @@ import { AppRoutes } from '../../../../shared/constants/app-route-names.enum';
 export class ArticleCardComponent {
   @Input({ required: true }) article!: Article;
 
-  readonly articlesRoute = `/${AppRoutes.Articles}/all`;
+  readonly articlesRoute = `/${AppRoutes.Articles}/feed`;
 
   readonly profileRoute = `/${AppRoutes.Profile}`;
 }

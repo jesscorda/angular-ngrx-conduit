@@ -1,11 +1,13 @@
-<div class="flex flex-col justify-between p-4 shadow rounded-lg cursor-pointer max-w-md h-32">
+<div class="flex flex-col justify-between p-4 shadow rounded-lg max-w-md h-32">
   <div class="flex gap-2 items-center">
     <button [routerLink]="[profileRoute, article.author.username]">
       <app-avatar [imageUrl]="article.author.image"></app-avatar>
     </button>
-    <p class="text-THEME_COLORS-spaceCadet text-xs font-semibold">{{ article.author.username }}</p>
+    <p class="text-THEME_COLORS-spaceCadet text-xs font-semibold">
+      {{ article.author.username }}
+    </p>
   </div>
-  <p [routerLink]="[articlesRoute, article.slug]" class="text-sm font-bold mt-2">
+  <p [routerLink]="[articlesRoute, article.slug]" class="text-sm font-bold mt-2 cursor-pointer">
     {{ article.title | slice: 0 : 80 }}...
   </p>
   <p class="text-slate-700 text-xs mt-2">{{ article.createdAt | date }}</p>
