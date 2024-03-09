@@ -30,7 +30,7 @@ import { AppRoutes } from '../../../../shared/constants/app-route-names.enum';
 export class ArticleComponent {
   @Input({ required: true }) article!: Article;
 
-  readonly articlesRoute = `/${AppRoutes.Articles}`;
+  readonly articlesRoute = `./`;
 
   readonly profileRoute = `/${AppRoutes.Profile}`;
 }

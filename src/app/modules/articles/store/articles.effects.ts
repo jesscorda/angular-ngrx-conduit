@@ -128,8 +128,8 @@ export const getFeed = createEffect(
   (actions$ = inject(Actions), articlesService = inject(ArticlesService)) => {
     return actions$.pipe(
       ofType(articlePageActions.getFeed),
-      switchMap(_ =>
-        articlesService.getFeed().pipe(
+      switchMap(action =>
+        articlesService.getFeed(action.queryParams).pipe(
           map(articles => articlePageActions.getFeedSuccess(articles)),
           catchError(error => of(articlePageActions.getFeedFailure(error))),
         ),

@@ -1,9 +1,15 @@
 <ng-container *ngIf="vm$ | async as vm">
   <div class="p-5 md:w-2/3 mx-auto">
-    <p class="text-3xl font-bold mt-5 mb-2">All Articles</p>
+    <div class="flex flex-wrap">
+      @for (tag of vm.filtersToDisplay; track tag) {
+        <app-tag [tag]="tag"></app-tag>
+      }
+    </div>
+    <p class="text-3xl font-bold mt-5 mb-2">Articles</p>
     <app-horizontal-divider></app-horizontal-divider>
     <div class="mt-2">
-      <app-article-list [articles]="vm.articles"></app-article-list>
+      <app-article-list
+        [articles]="type === 'feed' ? vm.feedArticles : vm.articles"></app-article-list>
     </div>
   </div>
 </ng-container>

@@ -50,8 +50,10 @@ export class HomePageComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this._store.dispatch(articlePageActions.getAllArticles({ queryParams: {} }));
+    this._store.dispatch(
+      articlePageActions.getAllArticles({ queryParams: { offset: 0, limit: 10 } }),
+    );
     this._store.dispatch(articlePageActions.getTags());
-    this._store.dispatch(articlePageActions.getFeed());
+    this._store.dispatch(articlePageActions.getFeed({ queryParams: { offset: 0, limit: 10 } }));
   }
 }
