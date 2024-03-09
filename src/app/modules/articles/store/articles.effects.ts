@@ -10,7 +10,7 @@ export const getAllArticles = createEffect(
       ofType(articlePageActions.getAllArticles),
       switchMap(action =>
         articlesService.getAllArticles(action.queryParams).pipe(
-          map(articles => articlePageActions.getAllArticlesSuccess(articles)),
+          map(response => articlePageActions.getAllArticlesSuccess(response)),
           catchError(error => of(articlePageActions.getAllArticlesFailure(error))),
         ),
       ),

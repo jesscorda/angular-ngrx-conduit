@@ -1,0 +1,13 @@
+<div class="flex items-center justify-center mt-2 xs:mt-0 gap-5">
+  <app-action-button
+    [disabled]="offset <= 1"
+    label="Previous"
+    (performAction)="onPreviousPress()"></app-action-button>
+  <p class="text-xs text-slate-700">
+    Showing {{ offset }} - {{ offset + limit }} of {{ total }} items
+  </p>
+  <app-action-button
+    [disabled]="offset + limit >= total"
+    label="Next"
+    (performAction)="onNextPress()"></app-action-button>
+</div>

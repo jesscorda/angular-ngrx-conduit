@@ -1,6 +1,12 @@
 <button
+  [disabled]="disabled"
   (click)="onPerformAction()"
   class="px-2 py-1 text-xs rounded-lg"
-  [ngClass]="getColorClass()">
+  [ngClass]="{
+    'cursor-not-allowed': disabled,
+    'cursor-pointer': !disabled,
+    'bg-THEME_COLORS-spaceCadet text-THEME_COLORS-isabelline': type === 'primary',
+    'text-THEME_COLORS-spaceCadet bg-THEME_COLORS-isabelline': type === 'secondary',
+  }">
   {{ label }}
 </button>
