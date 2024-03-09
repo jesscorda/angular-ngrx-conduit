@@ -22,6 +22,7 @@ export type ArticleListQueryParam = {
   tag: Tag;
   author: Username;
   favorited: Username;
-  limit?: number;
-  offset?: number;
+  limit: number;
+  offset: number;
+  type: 'feed' | 'articles';
 };

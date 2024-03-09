@@ -42,7 +42,7 @@ export class ArticleDetailsComponent implements OnInit {
 
   private readonly _store = inject(Store<{ articleState: ArticleState }>);
 
-  readonly articlesRoute = `/${AppRoutes.Articles}`;
+  readonly articlesRoute = `/${AppRoutes.Articles}/all`;
 
   readonly profileRoute = `/${AppRoutes.Profile}`;
 

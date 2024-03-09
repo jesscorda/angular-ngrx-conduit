@@ -10,13 +10,18 @@ const initialArticlesState: ArticleState = {
   comments: [],
   tags: [],
   feedArticles: [],
+  filters: {},
 };
 
 export const articleFeature = createFeature({
   name: 'articles',
   reducer: createReducer(
     initialArticlesState,
-    on(articlePageActions.getAllArticles, state => ({ ...state, isLoading: true })),
+    on(articlePageActions.getAllArticles, (state, action) => ({
+      ...state,
+      isLoading: true,
+      filters: action.queryParams,
+    })),
     on(articlePageActions.getAllArticlesSuccess, (state, action) => ({
       ...state,
       isLoading: false,
@@ -104,7 +109,11 @@ export const articleFeature = createFeature({
       isLoading: false,
       errors: action,
     })),
-    on(articlePageActions.getFeed, state => ({ ...state, isLoading: true })),
+    on(articlePageActions.getFeed, (state, action) => ({
+      ...state,
+      isLoading: true,
+      filters: action.queryParams,
+    })),
     on(articlePageActions.getFeedSuccess, (state, action) => ({
       ...state,
       isLoading: false,

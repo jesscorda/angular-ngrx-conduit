@@ -1,4 +1,4 @@
 export enum ArticleRouteNames {
-  ShowAllArticles = '',
+  ShowAllArticles = ':type',
   ShowArticle = ':slug',
 }

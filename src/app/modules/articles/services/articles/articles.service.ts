@@ -24,8 +24,8 @@ export class ArticlesService {
     );
   }
 
-  getFeed() {
-    return this._apiService.get<{ articles: Article[] }>(ArticlesApiUrls.GetFeed);
+  getFeed(queryParams: Partial<ArticleListQueryParam>) {
+    return this._apiService.get<{ articles: Article[] }>(ArticlesApiUrls.GetFeed, queryParams);
   }
 
   getArticle(slug: ArticleSlug) {

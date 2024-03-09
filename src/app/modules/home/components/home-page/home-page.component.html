@@ -9,7 +9,7 @@
           <app-action-button
             type="secondary"
             label="See More"
-            [routerLink]="[articlesRoute]"></app-action-button>
+            [routerLink]="[articlesRoute, 'feed']"></app-action-button>
         </div>
       </div>
       <app-horizontal-divider></app-horizontal-divider>
@@ -25,7 +25,7 @@
           <app-action-button
             type="secondary"
             label="See More"
-            [routerLink]="[articlesRoute]"></app-action-button>
+            [routerLink]="[articlesRoute, 'all']"></app-action-button>
         </div>
       </div>
       <app-horizontal-divider></app-horizontal-divider>
@@ -37,18 +37,15 @@
     <div class="lg:order-3 mt-5">
       <div class="flex justify-between">
         <p class="text-3xl lg:text-sm font-bold">Topics to Follow</p>
-        <div class="ml-auto mb-2">
-          <app-action-button
-            type="secondary"
-            label="See More"
-            [routerLink]="[articlesRoute]"></app-action-button>
-        </div>
       </div>
       <app-horizontal-divider></app-horizontal-divider>
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center mt-3">
         @if (vm.tags.length > 0) {
           @for (tag of vm.tags; track tag) {
-            <app-tag [tag]="tag"></app-tag>
+            <app-tag
+              [routerLink]="[articlesRoute, 'all']"
+              [queryParams]="{ tag }"
+              [tag]="tag"></app-tag>
           }
         } @else {
           <app-empty-data-indicator></app-empty-data-indicator>

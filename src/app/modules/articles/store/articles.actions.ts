@@ -46,7 +46,7 @@ export const articlePageActions = createActionGroup({
     [ArticleActionNames.GetTags]: emptyProps(),
     [ArticleActionNames.GetTagsSuccess]: props<{ tags: Tag[] }>(),
     [ArticleActionNames.GetTagsFailure]: props<BackendErrors>(),
-    [ArticleActionNames.GetFeed]: emptyProps(),
+    [ArticleActionNames.GetFeed]: props<{ queryParams: Partial<ArticleListQueryParam> }>(),
     [ArticleActionNames.GetFeedSuccess]: props<{ articles: Article[] }>(),
     [ArticleActionNames.GetFeedFailure]: props<BackendErrors>(),
   },

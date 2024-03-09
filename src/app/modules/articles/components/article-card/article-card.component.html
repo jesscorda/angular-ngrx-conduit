@@ -6,7 +6,7 @@
     <p class="text-THEME_COLORS-spaceCadet text-xs font-semibold">{{ article.author.username }}</p>
   </div>
   <p [routerLink]="[articlesRoute, article.slug]" class="text-sm font-bold mt-2">
-    {{ article.title }}
+    {{ article.title | slice: 0 : 80 }}...
   </p>
   <p class="text-slate-700 text-xs mt-2">{{ article.createdAt | date }}</p>
 </div>
