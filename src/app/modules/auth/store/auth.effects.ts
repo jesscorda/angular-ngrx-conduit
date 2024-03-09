@@ -11,10 +11,7 @@ import { Store } from '@ngrx/store';
 import type { AuthState } from '../types/auth-state.interface';
 
 export const login = createEffect(
-  (
-    actions$ = inject(Actions),
-    authService = inject(AuthService),
-  ) => {
+  (actions$ = inject(Actions), authService = inject(AuthService)) => {
     return actions$.pipe(
       ofType(AuthActions.login),
       switchMap((action: ReturnType<typeof AuthActions.login>) =>

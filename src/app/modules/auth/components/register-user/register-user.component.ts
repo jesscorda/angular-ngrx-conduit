@@ -1,12 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import type { RegisterForm } from '../../types/register-user.interface';
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import type { AuthState } from '../../types/auth-state.interface';
 import { AuthActions } from '../../store/auth.actions';

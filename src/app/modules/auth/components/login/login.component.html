@@ -1,5 +1,5 @@
 <ng-container *ngIf="vm$ | async as vm">
-  <div class="shadow-lg flex flex-col m-auto max-w-[25%] mt-5 p-8 rounded-md">
+  <div class="md:shadow-lg flex flex-col m-auto md:max-w-96 mt-5 p-8 rounded-md">
     <p class="text-2xl text-THEME_COLORS-ultraViolet my-4 text-center">Login</p>
     <form [formGroup]="loginForm" class="flex flex-col w-full" (ngSubmit)="onLoginUser()">
       <span class="flex flex-col gap-1 mt-3"

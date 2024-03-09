@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import type { ActiveToast} from 'ngx-toastr';
+import type { ActiveToast } from 'ngx-toastr';
 import { ToastrService } from 'ngx-toastr';
 
 @Injectable({

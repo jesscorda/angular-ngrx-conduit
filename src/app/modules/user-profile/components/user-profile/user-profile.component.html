@@ -1,4 +1,4 @@
-<section class="lg:w-2/3 mx-auto" *ngIf="vm$ | async as vm">
+<section class="p-4 md:w-2/3 mx-auto" *ngIf="vm$ | async as vm">
   <app-avatar size="xl" [imageUrl]="vm?.profile?.image ?? ''"></app-avatar>
   <h2 class="text-2xl font-semibold mt-5">{{ vm?.profile?.username }}</h2>
   <p class="text-sm mt-2">{{ vm?.profile?.bio }}</p>
@@ -15,7 +15,7 @@
   <div>
     <p class="text-lg font-semibold">Favorited Articles</p>
     <div class="mt-5">
-      <app-article-card-list [articles]="vm.articles"></app-article-card-list>
+      <app-article-card-list [columns]="2" [articles]="vm.articles"></app-article-card-list>
     </div>
   </div>
 </section>

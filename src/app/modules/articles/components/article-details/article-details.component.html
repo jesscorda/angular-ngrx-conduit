@@ -1,7 +1,7 @@
 <ng-container *ngIf="vm$ | async as vm">
   <section>
-    <div class="lg:w-[50%] p-4 mx-auto flex gap-10 items-start">
-      <button [routerLink]="[articlesRoute]">
+    <div class="lg:w-1/2 p-4 mx-auto flex gap-10 items-start">
+      <button [routerLink]="[articlesRoute]" class="hidden lg:block">
         <ng-icon size="1.5rem" name="heroArrowLeft"></ng-icon>
       </button>
       <div>
@@ -11,7 +11,7 @@
         <div class="flex gap-4 mt-5 w-full justify-between items-center">
           <div class="flex gap-4 items-center">
             <button [routerLink]="[profileRoute, vm.article?.author?.username]">
-              <app-avatar [imageUrl]="vm.article?.author?.image"></app-avatar>
+              <app-avatar size="l" [imageUrl]="vm.article?.author?.image"></app-avatar>
             </button>
             <div class="flex gap-2 items-start">
               <div class="flex flex-col text-xs gap-1 text-slate-700">
@@ -21,7 +21,7 @@
 
               <app-action-button
                 [label]="vm.article?.author?.following ? 'Following' : 'Follow'"
-                (toggleFollowUser)="onToggleFollowUser(vm.article?.author)"></app-action-button>
+                (performAction)="onToggleFollowUser(vm.article?.author)"></app-action-button>
             </div>
           </div>
           <div class="flex gap-1">

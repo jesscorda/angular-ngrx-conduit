@@ -1,5 +1,5 @@
 <div class="p-4">
-  <p class="font-bold text-lg">
+  <p class="font-bold text-lg" [routerLink]="[articlesRoute, article.slug]">
     {{ article.title }}
   </p>
   <div class="flex flex-wrap gap-1 mt-2">

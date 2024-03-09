@@ -45,7 +45,7 @@ export class UserProfileComponent {
 
   private _route = inject(ActivatedRoute);
 
-  readonly profileEditRoute = `/${AppRoutes.Profile}/${ProfileRoutes.EditProfileInfo}`;
+  profileEditRoute = `/${AppRoutes.Profile}/:username/${ProfileRoutes.EditProfileInfo}`;
 
   destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -63,6 +63,7 @@ export class UserProfileComponent {
     .pipe(
       tap(params => {
         const username = params.get('username');
+        if (!username) return;
         this.getInitialData(username);
       }),
       takeUntil(this.destroy$),
@@ -70,13 +71,20 @@ export class UserProfileComponent {
     .subscribe();
 
   vm$ = combineLatest({
-    profile: this._profileStore.select(selectProfile),
+    profile: this._profileStore.select(selectProfile).pipe(
+      tap(userprofile => {
+        if (!userprofile) return;
+        this.profileEditRoute = this.profileEditRoute.replace(
+          ProfileRoutes.ShowProfileInfo,
+          userprofile.username,
+        );
+      }),
+    ),
     articles: this._articleStore.select(selectArticles),
     currentUser: this._authStore.select(selectCurrentUser),
   });
 
-  getInitialData(username: Username | null): void {
-    if (!username) return;
+  getInitialData(username: Username): void {
     this._profileStore.dispatch(profileActions.getProfile({ username }));
     this._articleStore.dispatch(
       articlePageActions.getAllArticles({ queryParams: { favorited: username } }),

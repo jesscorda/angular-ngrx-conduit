@@ -58,7 +58,7 @@ export const authFeaure = createFeature({
       isLoading: false,
       errors: action.errors,
     })),
-    on(AuthActions.logout, (state) => ({
+    on(AuthActions.logout, state => ({
       ...state,
       currentUser: null,
     })),
