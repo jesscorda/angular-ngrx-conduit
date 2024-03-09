@@ -18,14 +18,17 @@ export class ArticlesService {
   private _apiService = inject(ApiService);
 
   getAllArticles(queryParams: Partial<ArticleListQueryParam>) {
-    return this._apiService.get<{ articles: Article[] }>(
+    return this._apiService.get<{ articles: Article[]; articlesCount: number }>(
       ArticlesApiUrls.GetAllArticles,
       queryParams,
     );
   }
 
   getFeed(queryParams: Partial<ArticleListQueryParam>) {
-    return this._apiService.get<{ articles: Article[] }>(ArticlesApiUrls.GetFeed, queryParams);
+    return this._apiService.get<{ articles: Article[]; articlesCount: number }>(
+      ArticlesApiUrls.GetFeed,
+      queryParams,
+    );
   }
 
   getArticle(slug: ArticleSlug) {

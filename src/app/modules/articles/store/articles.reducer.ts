@@ -5,6 +5,7 @@ import { articlePageActions } from './articles.actions';
 const initialArticlesState: ArticleState = {
   isLoading: false,
   articles: [],
+  articlesCount: 0,
   errors: null,
   article: null,
   comments: [],
@@ -26,6 +27,7 @@ export const articleFeature = createFeature({
       ...state,
       isLoading: false,
       articles: action.articles,
+      articlesCount: action.articlesCount,
     })),
     on(articlePageActions.getAllArticlesFailure, (state, action) => ({
       ...state,
@@ -118,6 +120,7 @@ export const articleFeature = createFeature({
       ...state,
       isLoading: false,
       feedArticles: action.articles,
+      articlesCount: action.articlesCount,
     })),
     on(articlePageActions.getFeedFailure, (state, action) => ({
       ...state,
@@ -131,6 +134,7 @@ export const {
   name: articlesFeatureKey,
   reducer: articlesReducer,
   selectArticles,
+  selectArticlesCount,
   selectArticlesState,
   selectErrors,
   selectIsLoading,
@@ -138,4 +142,5 @@ export const {
   selectComments,
   selectTags,
   selectFeedArticles,
+  selectFilters,
 } = articleFeature;

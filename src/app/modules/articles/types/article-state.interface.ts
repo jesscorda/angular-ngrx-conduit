@@ -5,6 +5,7 @@ import type { Comment } from './comment.interface';
 export interface ArticleState {
   isLoading: boolean;
   articles: Article[];
+  articlesCount: number;
   errors: BackendErrors | null;
   article: Article | null;
   comments: Comment[];

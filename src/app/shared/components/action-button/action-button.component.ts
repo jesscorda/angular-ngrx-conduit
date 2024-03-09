@@ -12,14 +12,11 @@ export class ActionButtonComponent {
 
   @Input() type: string = 'primary';
 
+  @Input() disabled: boolean = false;
+
   @Output() performAction = new EventEmitter<void>();
 
   onPerformAction(): void {
     this.performAction.emit();
-  }
-
-  getColorClass(): string {
-    if (this.type === 'primary') return 'bg-THEME_COLORS-spaceCadet text-THEME_COLORS-isabelline';
-    else return 'text-THEME_COLORS-spaceCadet bg-THEME_COLORS-isabelline';
   }
 }

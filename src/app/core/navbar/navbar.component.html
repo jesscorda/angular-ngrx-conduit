@@ -4,6 +4,11 @@
     <h1 [routerLink]="[homeRoute]" class="cursor-pointer">CONDUIT</h1>
     <ul class="flex gap-4 items-center" *ngIf="user$ | async as user">
       <li>
+        <button [routerLink]="[homeRoute]" class="p-2 rounded-md text-lg font-semibold">
+          Home
+        </button>
+      </li>
+      <li>
         <button class="p-2 rounded-md text-lg font-semibold" (click)="onLogoutUser()">
           {{ user ? 'Logout' : 'Log In' }}
         </button>

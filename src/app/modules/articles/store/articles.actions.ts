@@ -10,7 +10,10 @@ export const articlePageActions = createActionGroup({
   source: 'articles',
   events: {
     [ArticleActionNames.GetAllArticles]: props<{ queryParams: Partial<ArticleListQueryParam> }>(),
-    [ArticleActionNames.GetAllArticlesSuccess]: props<{ articles: Article[] }>(),
+    [ArticleActionNames.GetAllArticlesSuccess]: props<{
+      articles: Article[];
+      articlesCount: number;
+    }>(),
     [ArticleActionNames.GetAllArticlesFailure]: props<BackendErrors>(),
     [ArticleActionNames.GetArticle]: props<{
       slug: ArticleSlug;
@@ -47,7 +50,7 @@ export const articlePageActions = createActionGroup({
     [ArticleActionNames.GetTagsSuccess]: props<{ tags: Tag[] }>(),
     [ArticleActionNames.GetTagsFailure]: props<BackendErrors>(),
     [ArticleActionNames.GetFeed]: props<{ queryParams: Partial<ArticleListQueryParam> }>(),
-    [ArticleActionNames.GetFeedSuccess]: props<{ articles: Article[] }>(),
+    [ArticleActionNames.GetFeedSuccess]: props<{ articles: Article[]; articlesCount: number }>(),
     [ArticleActionNames.GetFeedFailure]: props<BackendErrors>(),
   },
 });
