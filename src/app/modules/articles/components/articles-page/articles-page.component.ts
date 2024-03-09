@@ -1,8 +1,7 @@
-import type { OnInit } from '@angular/core';
 import { Component, Input, inject } from '@angular/core';
 import { ArticleListComponent } from '../article-list/article-list.component';
 import { Store } from '@ngrx/store';
-import { combineLatest, map, withLatestFrom } from 'rxjs';
+import { combineLatest, map } from 'rxjs';
 import { articlePageActions } from '../../store/articles.actions';
 import {
   selectArticles,
@@ -17,7 +16,7 @@ import { HorizontalDividerComponent } from '../../../../shared/components/horizo
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { TagComponent } from '../../../../shared/components/tag/tag.component';
 import { PaginatorComponent } from '../../../../shared/components/paginator/paginator.component';
-import { Paginator } from '../../../../shared/types/paginator.interface';
+import type { Paginator } from '../../../../shared/types/paginator.interface';
 
 @Component({
   selector: 'app-articles-page',

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActionButtonComponent } from '../action-button/action-button.component';
-import { Paginator } from '../../types/paginator.interface';
+import type { Paginator } from '../../types/paginator.interface';
 
 @Component({
   selector: 'app-paginator',
