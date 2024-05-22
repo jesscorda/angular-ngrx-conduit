@@ -1,27 +1,69 @@
-# Angular App for Conduit
+# RealWorld Conduit Angular App with NgRx
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+## About
 
-## Development server
+This project is an Angular application that uses NgRx to manage state for building the frontend of the RealWorld Conduit app. The RealWorld Conduit app is a Medium-like clone where users can sign up, sign in, create articles, like articles, and follow other users.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- **User Authentication:** Sign up, sign in, and sign out.
+- **User Profiles:** View and edit user profiles, follow and unfollow users.
+- **Articles:** Create, edit, delete, and view articles.
+- **Comments:** Add and delete comments on articles.
+- **Favorites:** Mark articles as favorites.
+- **State Management:** Uses NgRx for managing application state.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Getting Started
 
-## Build
+### Prerequisites
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Node.js and npm installed on your machine.
 
-## Running unit tests
+### Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clone the repository:
 
-## Running end-to-end tests
+    ```bash
+    git clone https://github.com/yourusername/angular-ngrx-realworld-app.git
+    ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. Navigate to the project directory:
 
-## Further help
+    ```bash
+    cd angular-ngrx-realworld-app
+    ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. Install the dependencies:
+
+    ```bash
+    npm install
+    ```
+
+### Running the Application
+
+1. Start the development server:
+
+    ```bash
+    ng serve
+    ```
+
+2. Open your browser and navigate to `http://localhost:4200`.
+
+## Project Structure
+
+- **src/app:** Contains the main application code.
+  - **actions:** Defines NgRx actions.
+  - **reducers:** Defines NgRx reducers.
+  - **effects:** Defines NgRx effects for handling side effects.
+  - **services:** Contains services for making API calls.
+  - **components:** Contains Angular components for various parts of the application.
+  - **models:** Contains TypeScript interfaces and models.
+
+## Using NgRx
+
+NgRx is used for managing the state of the application. Here are the main parts:
+
+- **Actions:** Define what events can happen in the application (e.g., load articles, login user).
+- **Reducers:** Specify how the application's state changes in response to actions.
+- **Effects:** Handle side effects like API calls.
+- **Selectors:** Retrieve slices of state from the store.
