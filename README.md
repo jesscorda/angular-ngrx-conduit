@@ -49,16 +49,6 @@ This project is an Angular application that uses NgRx to manage state for buildi
 
 2. Open your browser and navigate to `http://localhost:4200`.
 
-## Project Structure
-
-- **src/app:** Contains the main application code.
-  - **actions:** Defines NgRx actions.
-  - **reducers:** Defines NgRx reducers.
-  - **effects:** Defines NgRx effects for handling side effects.
-  - **services:** Contains services for making API calls.
-  - **components:** Contains Angular components for various parts of the application.
-  - **models:** Contains TypeScript interfaces and models.
-
 ## Using NgRx
 
 NgRx is used for managing the state of the application. Here are the main parts:
